@@ -20,6 +20,6 @@ before_install:
 
 script:
   # initiate fake server
-  - python -m http.server 80 &
+  - python -m http.server --bind 0.0.0.0 80 &
   - wget http://fbf.test
   - docker-compose exec node wget http://fbf.test
