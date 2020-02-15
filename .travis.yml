@@ -12,14 +12,9 @@ addons:
     - fbf.test
 
 before_install:
-  - sudo apt -y update; sudo apt -y install make zip wget curl net-tools iputils dnsmasq
-  - "export IP_ADDR=$(ifconfig docker0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')"
-  - echo $IP_ADDR
-  - sudo sed -i "s/127.0.0.1/${IP_ADDR}/g" /etc/hosts
-  - cat /etc/hosts
+  - sudo apt -y update; sudo apt -y install wget curl
+  - sudo bash extract-interface-ip.sh
   - sudo bash modify-dnsmasq-config.sh
-  - sudo bash -c "echo 'nameserver $IP_ADDR' >> /etc/resolv.conf"
-  - sudo service dnsmasq restart
   - docker-compose build
   - docker-compose up -d
 
