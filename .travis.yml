@@ -20,6 +20,7 @@ before_install:
 
 script:
   # initiate fake server
+  - sudo netstat -tulnp
   - python -m http.server --bind 0.0.0.0 80 &
   - sleep 10
   - wget http://fbf.test/
@@ -33,3 +34,4 @@ script:
   - curl http://fbf.test:8080/
   - docker-compose exec node wget http://fbf.test:8080/
   - docker-compose exec node curl http://fbf.test:8080/
+  - sudo netstat -tulnp
