@@ -21,12 +21,14 @@ before_install:
 script:
   # initiate fake server
   - python -m http.server --bind 0.0.0.0 80 &
+  - sleep 10
   - wget http://fbf.test/
   - curl http://fbf.test/
   - docker-compose exec node wget http://fbf.test/
   - docker-compose exec node curl http://fbf.test/
 
   - python -m http.server --bind 0.0.0.0 8080 &
+  - sleep 10
   - wget http://fbf.test:8080/
   - curl http://fbf.test:8080/
   - docker-compose exec node wget http://fbf.test:8080/
