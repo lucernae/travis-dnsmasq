@@ -31,4 +31,8 @@ script:
   - docker-compose exec node curl http://fbf.test:8080/
   - docker-compose exec node wget http://postgrest.fbf.test:8080/
   - docker-compose exec node curl http://postgrest.fbf.test:8080/
+  - docker-compose exec node-in-bridge wget http://fbf.test:8080/
+  - docker-compose exec node-in-bridge curl http://fbf.test:8080/
+  - docker-compose exec node-in-bridge wget http://postgrest.fbf.test:8080/
+  - docker-compose exec node-in-bridge curl http://postgrest.fbf.test:8080/
   - sudo netstat -tulnp

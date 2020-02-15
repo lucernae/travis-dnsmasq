@@ -7,3 +7,11 @@ services:
       dockerfile: Dockerfile
       context: $PWD
     command: tail -f /dev/null
+
+  node-in-bridge:
+    image: node
+    build:
+      dockerfile: Dockerfile
+      context: $PWD
+    command: tail -f /dev/null
+    network_mode: bridge
