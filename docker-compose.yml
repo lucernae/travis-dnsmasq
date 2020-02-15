@@ -15,3 +15,5 @@ services:
       context: $PWD
     command: tail -f /dev/null
     network_mode: bridge
+    dns:
+      - $IP_ADDR
