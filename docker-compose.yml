@@ -1,0 +1,9 @@
+version: '2.1'
+services:
+
+  node:
+    image: node
+    build:
+      dockerfile: Dockerfile
+      context: $PWD
+    command: tail -f /dev/null
