@@ -14,6 +14,8 @@ addons:
 before_install:
   - sudo apt -y update; sudo apt -y install wget curl
   - sudo bash extract-interface-ip.sh
+  - export IP_ADDR=$(cat ip-address.txt)
+  - echo $IP_ADDR
   - sudo bash modify-dnsmasq-config.sh
   - docker-compose build
   - docker-compose up -d

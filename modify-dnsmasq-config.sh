@@ -2,6 +2,8 @@
 
 # Run as sudo
 
+echo "Use IP_ADDR: $IP_ADDR"
+
 apt -y update; apt -y install dnsmasq
 cat >> /etc/dnsmasq.conf << EOL
 server=1.1.1.1
